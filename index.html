@@ -14,14 +14,17 @@
         }
         .typing_efftct{
             width: 22ch;
+            /* 关键实现：2s内分30段播放，并且右边框执行500ms透明度色，以此无线循环下去就是光标闪烁效果 */
             animation: typing 2s steps(30),effect 0.5s step-end infinite;
             white-space: nowrap;
             overflow: hidden;
-            border-right: 3px solid;
+            /* 右侧光标 */
+            border-right: 4px solid;
             font-family: monospace;
-            font-size: 2em;
+            font-size: 4em;
         }
         @keyframes typing {
+            /* 控制宽度长度 */
             from{
                width: 0
             }
@@ -36,6 +39,11 @@
     </style>
 </head>
 <body>
+    <!-- Emmet 的前身就是 Zen Coding。 它是一组专门用来提高编写 HTML 和 CSS 代码速度的便利工具。
+    VScode本身自带支持
+
+    通过输入 .typing>.typing_effect{Hello Bug every day...}快速创建
+    -->
     <div class="typing">
         <div class="typing_efftct">Hello Bug every day...</div>
     </div>
